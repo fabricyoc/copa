@@ -4,6 +4,8 @@ import styles from './GroupStandings.module.css';
 function GroupStandings() {
   const [grupos, setGrupos] = useState([]);
   const [letraSelecionada, setletraSelecionada] = useState('A');
+  const gruposUnicos = [...new Set(grupos.map(grupo => grupo.grupo))];
+
 
   useEffect(() => {
     const buscarGrupos = async () => {
@@ -23,16 +25,15 @@ function GroupStandings() {
           value={letraSelecionada}
           onChange={(e) => setletraSelecionada(e.target.value)}
         >
-          <option value="A">Grupo A</option>
-          <option value="B">Grupo B</option>
-          <option value="C">Grupo C</option>
-          <option value="D">Grupo D</option>
-          <option value="E">Grupo E</option>
-          <option value="F">Grupo F</option>
-          <option value="G">Grupo G</option>
-          <option value="H">Grupo H</option>
+          {
+            gruposUnicos.map(grupo => (
+              <option value={grupo} key={grupo}>
+                Grupo {grupo}
+              </option>
+            ))
+          }
         </select>
-      </div>
+      </div >
       <table className={styles.table}>
         <thead>
           <tr>
