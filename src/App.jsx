@@ -20,7 +20,6 @@ function App() {
 
       <h2>Classificação por grupo</h2>
       <section className='groupTable'>
-        <h2>Grupo A</h2>
         <GroupStandings />
       </section>
     </>
