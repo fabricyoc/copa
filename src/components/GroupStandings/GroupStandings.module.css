@@ -1,0 +1,38 @@
+.table {
+  width: 100%;
+  max-width: 1000px;
+
+  margin-block: 1rem;
+  margin-inline: auto;
+
+  /* border: 1px solid red; */
+  /* une as bordas sem separá-las */
+  border-collapse: collapse;
+}
+
+.table tr {
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* colore as linhas ímpares */
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table th {
+  background-color: #f2f2f2;
+
+  /* conforme for scrolando o th vai ficar colado */
+  position: sticky;
+  top: 0;
+}
+
+table .esquerda {
+  text-align: left;
+  padding-left: 1rem;
+}
