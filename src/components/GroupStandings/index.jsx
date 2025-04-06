@@ -3,6 +3,7 @@ import styles from './GroupStandings.module.css';
 
 function GroupStandings() {
   const [grupos, setGrupos] = useState([]);
+  const [letraSelecionada, setletraSelecionada] = useState('A');
 
   useEffect(() => {
     const buscarGrupos = async () => {
@@ -18,7 +19,10 @@ function GroupStandings() {
   return (
     <>
       <div className={styles.divSelect}>
-        <select>
+        <select
+          value={letraSelecionada}
+          onChange={(e) => setletraSelecionada(e.target.value)}
+        >
           <option value="A">Grupo A</option>
           <option value="B">Grupo B</option>
           <option value="C">Grupo C</option>
@@ -46,7 +50,7 @@ function GroupStandings() {
         <tbody>
           {
             grupos.filter(grupo =>
-              grupo.grupo === "A"
+              grupo.grupo === letraSelecionada
             ).map(grupo => (
               <tr key={grupo.selecao}>
                 <td>{grupo.posicao}</td>
