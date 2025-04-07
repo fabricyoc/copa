@@ -24,9 +24,24 @@ function App() {
         <GroupStandings />
       </section>
 
-      <h2>Oitavas de final</h2>
+      <h2>Oitavas de finais</h2>
       <section className='knockoutTable'>
         <KnockoutStage fase='oitavas' />
+      </section>
+
+      <h2>Quartas de finais</h2>
+      <section className='knockoutTable'>
+        <KnockoutStage fase='quartas' />
+      </section>
+
+      <h2>Semifinais</h2>
+      <section className='knockoutTable'>
+        <KnockoutStage fase='semifinais' />
+      </section>
+
+      <h2>Finais</h2>
+      <section className='knockoutTable'>
+        <KnockoutStage fase='finais' />
       </section>
     </>
   )
