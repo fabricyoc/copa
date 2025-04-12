@@ -1,5 +1,6 @@
 import './App.css'
 import Card from './components/Card'
+import Fixture from './components/Fixture'
 import GameTable from './components/GameTable'
 import GroupStandings from './components/GroupStandings'
 import KnockoutStage from './components/KnockoutStage'
@@ -10,7 +11,7 @@ function App() {
     <>
       <h1>Copa do Mundo Feminina</h1>
 
-      <section className='cards'>
+      {/* <section className='cards'>
         <Card />
       </section>
 
@@ -27,6 +28,11 @@ function App() {
       <h2>Oitavas de finais</h2>
       <section className='knockoutTable'>
         <KnockoutStage fase='oitavas' />
+      </section> */}
+
+      <h2>Jogos do dia 10/08</h2>
+      <section className='knockoutTable'>
+        <Fixture fase='quartas' data='12/08' />
       </section>
 
       <h2>Quartas de finais</h2>
