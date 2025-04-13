@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import TournamentBracket from './components/TournamentBracket'
+import TabButton from './components/TabButton';
 
 function App() {
 
-  const [activeTab, setActiveTab] = useState('Tab 1');
+  const [activeTab, setActiveTab] = useState('Finais');
 
   function handleChangeTab(tabName) {
     setActiveTab(tabName);
@@ -12,14 +13,16 @@ function App() {
 
   function renderTabContent() {
     switch (activeTab) {
-      case 'Tab 1':
+      case 'Finais':
+        return <TournamentBracket fase='finais' />;
+      case 'Semifinais':
         return <TournamentBracket fase='semifinais' />;
-      case 'Tab 2':
+      case 'Quartas':
         return <TournamentBracket fase='quartas' />;
-      case 'Tab 3':
+      case 'Oitavas':
         return <TournamentBracket fase='oitavas' />;
-      default:
-        break;
+      case 'Grupos':
+        return <section className='cards'><Card /></section>
     }
   }
 
@@ -29,24 +32,26 @@ function App() {
 
       <section className='knockoutTable'>
         <div className='tabs'>
-          <button
-            className={activeTab === 'Tab 1' ? 'active' : ''}
-            onClick={() => handleChangeTab('Tab 1')}
-          >
-            Semifinais
-          </button>
-          <button
-            className={activeTab === 'Tab 2' ? 'active' : ''}
-            onClick={() => handleChangeTab('Tab 2')}
-          >
-            Quartas
-          </button>
-          <button
-            className={activeTab === 'Tab 3' ? 'active' : ''}
-            onClick={() => handleChangeTab('Tab 3')}
-          >
-            Oitavas
-          </button>
+          <TabButton
+            tabName='Finais'
+            activeTab={activeTab}
+            handleChangeTab={handleChangeTab}
+          />
+          <TabButton
+            tabName='Semifinais'
+            activeTab={activeTab}
+            handleChangeTab={handleChangeTab}
+          />
+          <TabButton
+            tabName='Quartas'
+            activeTab={activeTab}
+            handleChangeTab={handleChangeTab}
+          />
+          <TabButton
+            tabName='Oitavas'
+            activeTab={activeTab}
+            handleChangeTab={handleChangeTab}
+          />
         </div>
 
         <div className='tab_content'>
